@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Challenges
+{% endblock %}
+
+{% block main %}
+    <button class="btn btn-primary" onclick="document.location='/challenge_checker'">Check For Completed Tasks</button>
+    <br></br>
+    <h2> Your Tasks </h2>
+    <table class = "table table-hover">
+        <tr>
+            <th>Task</th>
+            <th>Reward</th>
+            <th>Status</th>
+
+        </tr>
+
+        {% for challenge in challenges %}
+
+        <tr>
+            <td>{{challenge["name"]}}</td>
+            <td>{{challenge["reward"]}}</td>
+            <td><p>{{challenge["status"]}}<p></td>
+        </tr>
+
+        {% endfor %}
+    </table>
+    <p> If you complete all challenges you can become an ultimate investor and as your reward you will get $5000</p>
+{% endblock %}

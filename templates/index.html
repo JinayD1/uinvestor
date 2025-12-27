@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class = "table table-hover">
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Quantity</th>
+            <th>Purchase Price</th>
+            <th>Current Price</th>
+            <th>Value</th>
+            <th>Profit</th>
+        </tr>
+
+        {% for stock in stocks %}
+
+        <tr>
+            <td>{{stock["symbol"]}}</td>
+            <td>{{stock["volume"]}}</td>
+            <td>{{stock["price"]}}</td>
+            <td>{{stock["current"]}}</td>
+            <td>{{stock["value"]}}</td>
+            <td>{{stock["profit"]}}</td>
+
+
+        </tr>
+
+        {% endfor %}
+        <p>Your current cash is {{ cash }}</p>
+    </table>
+{% endblock %}

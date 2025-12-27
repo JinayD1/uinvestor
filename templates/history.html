@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class = "table table-hover">
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Method</th>
+        </tr>
+
+        {% for stock in stocks %}
+
+        <tr>
+            <td>{{stock["stock"]}}</td>
+            <td>{{stock["volume"]}}</td>
+            <td>{{stock["price"]}}</td>
+            <td>{{stock["date"]}}</td>
+            <td>{{stock["method"]}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+{% endblock %}

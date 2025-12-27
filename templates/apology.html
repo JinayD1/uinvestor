@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Error
+{% endblock %}
+
+{% block main %}
+<div class="container text-center mt-5">
+  <img
+    src="{{ url_for('static', filename='error.svg') }}"
+    alt="Error"
+    style="max-width: 220px;"
+    class="mb-4"
+  >
+
+  <h2 class="fw-bold text-danger">{{ top }}</h2>
+  <p class="text-muted fs-5">{{ bottom }}</p>
+
+  <a href="/" class="btn btn-primary mt-3">
+    Back to Dashboard
+  </a>
+</div>
+{% endblock %}

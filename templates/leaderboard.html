@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Leaderboard
+{% endblock %}
+
+{% block main %}
+<div class="container mt-4">
+
+  <!-- Header -->
+  <div class="text-center mb-3">
+    <h2 class="fw-bold"> Leaderboard</h2>
+    <p class="text-muted">
+      Ranked by profit among <strong>{{ skill }}s</strong>
+    </p>
+  </div>
+
+  <!-- Leaderboard Table -->
+  <div class="card shadow-sm">
+    <div class="card-body p-0">
+      <table class="table table-hover table-striped mb-0 text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">User</th>
+            <th scope="col">Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for profit in profits %}
+          <tr
+            class="
+              {% if profit.username == user.username %}table-info fw-semibold{% endif %}
+              {% if profit.placement == 1 %}table-warning{% endif %}
+              {% if profit.placement == 2 %}table-secondary{% endif %}
+              {% if profit.placement == 3 %}table-light{% endif %}
+            "
+          >
+            <td class="fw-bold">
+              {% if profit.placement == 1 %}🥇
+              {% elif profit.placement == 2 %}🥈
+              {% elif profit.placement == 3 %}🥉
+              {% else %}{{ profit.placement }}
+              {% endif %}
+            </td>
+
+            <td>
+              {{ profit.username }}
+              {% if profit.username == user.username %}
+                <span class="badge bg-primary ms-2">You</span>
+              {% endif %}
+            </td>
+
+            <td class="fw-semibold">
+              {{ profit.profit }}
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- User Ranking Summary -->
+  <div class="text-center mt-3">
+    <small class="text-muted">
+      Your rank: <strong>#{{ user.placement }}</strong> — Profit: <strong>{{ user.profit }}</strong>
+    </small>
+  </div>
+
+</div>
+{% endblock %}
