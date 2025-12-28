@@ -3,4 +3,4 @@ Flask-Session
 requests
 python-dotenv
 gunicorn
-Werkzeugfx
+Werkzeug
