@@ -2,7 +2,7 @@
 import os
 from datetime import datetime
 from json import load
-
+from dotenv import load_dotenv
 import sqlite3
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
