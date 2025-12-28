@@ -3,5 +3,4 @@ Flask-Session
 requests
 python-dotenv
 gunicorn
-werkzeug.exceptions
-werkzeug.security
+Werkzeugfx
