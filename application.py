@@ -48,7 +48,7 @@ def execute(query, **params):
     conn.commit()
     conn.close()
 
-if not os.environ.get("API_KEY"):
+if not os.getenv("FINNHUB_API_KEY"):
     raise RuntimeError("API_KEY not set")
 
 # ---------------- INDEX ----------------
