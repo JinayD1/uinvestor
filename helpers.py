@@ -5,6 +5,8 @@ from flask import redirect, render_template, request, session
 from functools import wraps
 
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
+if not FINNHUB_API_KEY:
+    raise RuntimeError("FINNHUB_API_KEY not set")
 
 def apology(message, code=400):
     """Render message as an apology to user."""
@@ -30,9 +32,6 @@ def login_required(f):
 
 
 def lookup(symbol):
-    if not FINNHUB_API_KEY or not symbol:
-        return None
-    
     """Look up quote for symbol using Finnhub."""
     if not symbol:
         return None
