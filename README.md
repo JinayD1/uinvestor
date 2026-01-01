@@ -118,13 +118,4 @@ Contributions are welcome!
 
 This project is licensed under the MIT License.
 
----
-
-## 👤 Author
-
-**Jinay Desai**
-Aspiring Software Engineer | FinTech & Systems Enthusiast
-
----
-
 ⭐ If you find this project useful, consider giving it a star!
