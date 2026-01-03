@@ -39,20 +39,30 @@ This project demonstrates **backend engineering**, **API integration**, **databa
 ```bash
 git clone https://github.com/yourusername/uInvestor.git
 cd uInvestor
-
+```
 ### 2. Create the virtual environment
-```python3 -m venv venv
+```bash
+python3 -m venv venv
 source venv/bin/activate
+```
 
 ### 3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Set up environment variables
+```bash
 FINNHUB_API_KEY=your_finnhub_api_key_here
 FLASK_ENV=development
+```
 
 ### 5.Initialize database
+```bash
 sqlite3 finance.db < schema.sql
+```
 
 ### 6. Run the app
+```bash
 flask run
+```
