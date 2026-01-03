@@ -6,7 +6,7 @@
 ![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
 ![Deployed](https://img.shields.io/badge/Deployed-Render-purple)
 
-🔗 **Live Demo:** https://your-app-name.onrender.com  
+🔗 **Live Demo:** https://uinvestor.onrender.com/  
 📂 **Tech Stack:** Flask · Python · SQLite · Finnhub API · HTML/CSS · Bootstrap
 
 ---
