@@ -1,121 +1,58 @@
-# uInvestor 🚀
+# uInvestor 📈  
+*A full-stack stock trading simulation platform*
 
-uInvestor is a modern investment-focused platform designed to help users track, analyze, and make smarter financial decisions. The project emphasizes clean architecture, scalability, and real‑world engineering practices, making it suitable both as a production-ready application and a strong portfolio project.
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Flask](https://img.shields.io/badge/Flask-2.x-black)
+![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
+![Deployed](https://img.shields.io/badge/Deployed-Render-purple)
+
+🔗 **Live Demo:** https://your-app-name.onrender.com  
+📂 **Tech Stack:** Flask · Python · SQLite · Finnhub API · HTML/CSS · Bootstrap
+
+---
+
+## 🚀 Overview
+
+**uInvestor** is a full-stack web application that simulates a real-world stock trading platform.  
+Users can register, receive virtual cash, buy and sell real stocks using live market data, track portfolio performance, view transaction history, and compete on a leaderboard.
+
+This project demonstrates **backend engineering**, **API integration**, **database design**, and **production deployment**.
 
 ---
 
 ## ✨ Features
 
-* 📊 **Investment Tracking** – Monitor portfolios, assets, and performance over time
-* 🔍 **Data‑Driven Insights** – Analyze trends, metrics, and historical data
-* 🔐 **Secure Authentication** – User accounts with protected access
-* ⚡ **Scalable Backend** – Designed to handle growth and real‑world usage
-* 🧠 **Extensible Architecture** – Easy to add new features and data sources
+- Secure user authentication (register/login)
+- Real-time stock prices via Finnhub API
+- Buy & sell stocks with balance validation
+- Portfolio tracking with profit/loss calculation
+- Transaction history with timestamps
+- Skill-based leaderboard with ranking display
+- Gold / Silver / Bronze placement styling
+- Deployed to production using Render
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Setup Instructions (Local)
 
-**Frontend**
-
-* Modern JavaScript framework (React / Next.js)
-* Responsive UI with clean, minimal design
-
-**Backend**
-
-* API‑driven architecture
-* Database‑backed data persistence
-* Authentication & authorization layer
-
-**Infrastructure**
-
-* Containerized using Docker
-* Cloud‑deployable (AWS / GCP / Render / Vercel)
-* Environment‑based configuration
-
----
-
-## 📂 Project Structure
-
-```
-uinvestor/
-├── frontend/        # Client-side application
-├── backend/         # Server-side logic & APIs
-├── database/        # Schemas, migrations, seeds
-├── docker/          # Docker & deployment configs
-└── README.md        # Project documentation
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Node.js (v18+ recommended)
-* Docker (optional, but recommended)
-* A supported database (PostgreSQL / SQLite)
-
-### Installation
-
+### 1. Clone the repo
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/uinvestor.git
-cd uinvestor
+git clone https://github.com/yourusername/uInvestor.git
+cd uInvestor
 
-# Install dependencies
-npm install
+### 2. Create the virtual environment
+```python3 -m venv venv
+source venv/bin/activate
 
-# Start the development server
-npm run dev
-```
+### 3. Install dependencies
+pip install -r requirements.txt
 
----
+### 4. Set up environment variables
+FINNHUB_API_KEY=your_finnhub_api_key_here
+FLASK_ENV=development
 
-## 🔑 Environment Variables
+### 5.Initialize database
+sqlite3 finance.db < schema.sql
 
-Create a `.env` file in the root directory:
-
-```env
-DATABASE_URL=your_database_url
-API_KEY=your_api_key
-JWT_SECRET=your_secret_key
-```
-
----
-
-## 🧪 Testing
-
-```bash
-npm run test
-```
-
-Includes unit tests and integration tests to ensure reliability and correctness.
-
----
-
-## 📈 Roadmap
-
-* [ ] Real‑time market data integration
-* [ ] Advanced portfolio analytics
-* [ ] AI‑powered investment insights
-* [ ] Mobile‑friendly UI improvements
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/new-feature`)
-3. Commit your changes
-4. Open a Pull Request
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
-⭐ If you find this project useful, consider giving it a star!
+### 6. Run the app
+flask run
