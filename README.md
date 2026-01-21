@@ -7,7 +7,8 @@
 ![Deployed](https://img.shields.io/badge/Deployed-Render-purple)
 
 🔗 **Live Demo:** https://uinvestor.onrender.com/
-▶️ **Youtube Demo** Thttps://youtu.be/LwkaI1PzKoM
+
+▶️ **Youtube Demo** https://youtu.be/LwkaI1PzKoM
 📂 **Tech Stack:** Flask · Python · SQLite · Finnhub API · HTML/CSS · Bootstrap
 
 ---
