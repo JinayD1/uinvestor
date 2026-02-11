@@ -1,3 +1,6 @@
 Flask
 Flask-Session
 requests
+python-dotenv
+gunicorn
+Werkzeug
