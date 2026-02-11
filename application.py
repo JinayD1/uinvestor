@@ -2,7 +2,7 @@
 import os
 from datetime import datetime
 from json import load
-from dotenv import load_dotenv
+
 import sqlite3
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
@@ -33,22 +33,25 @@ Session(app)
 DATABASE = "finance.db"
 
 def get_db():
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(DATABASE, timeout=10)
     conn.row_factory = sqlite3.Row
     return conn
 
 def execute(query, **params):
     conn = get_db()
     cur = conn.cursor()
-    cur.execute(query, params)
-    if query.strip().upper().startswith("SELECT"):
-        rows = cur.fetchall()
+    try:
+        cur.execute(query, params)
+        if query.strip().upper().startswith("SELECT"):
+            rows = cur.fetchall()
+            return [dict(row) for row in rows]
+        else:
+            conn.commit()
+            return None
+    finally:
         conn.close()
-        return [dict(row) for row in rows]
-    conn.commit()
-    conn.close()
 
-if not os.getenv("FINNHUB_API_KEY"):
+if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
 
 # ---------------- INDEX ----------------
@@ -171,7 +174,7 @@ def sell():
 
     execute(
         "INSERT INTO transactions (id, stock, volume, price, date, method) VALUES (:id,:s,:v,:p,:d,'SELL')",
-        id=session["user_id"], s=symbol, v=int(qty), p=quote["price"],
+        id=session["user_id"], s=symbol, v=int(qty), p=usd(quote["price"]),
         d=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     )
 
@@ -287,12 +290,3 @@ def help():
     Display help page explaining how the app works
     """
     return render_template("helper.html")
-
-# ---------------- ERRORS ----------------
-def errorhandler(e):
-    if not isinstance(e, HTTPException):
-        e = InternalServerError()
-    return apology(e.name, e.code)
-
-for code in default_exceptions:
-    app.errorhandler(code)(errorhandler)
